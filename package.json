@@ -1,7 +1,7 @@
 {
   "name": "deep-values",
-  "version": "1.0.0",
-  "description": "line by line diff of two large files",
+  "version": "1.0.1",
+  "description": "deep version of Object.values",
   "license": "MIT",
   "repository": "niiknow/deep-values",
   "author": {

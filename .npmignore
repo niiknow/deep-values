@@ -1,3 +1,5 @@
+.editorconfig
+.gitattributes
 .travis.yml
 tests/*
 node_modules
