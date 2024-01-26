@@ -2,7 +2,13 @@
 - `deepValues` capture version of Object.values that return all object's primative values
 - `deepFilter` piggy-back on `deepValues` to allow for deep filtering on object's primative values
 
-Finally, all that in less than 100 lines of code and 0/zero dependencies.
+Finally, we keep it simple (KISS/xoxo) and 0(zero)/no dependency.
+
+## Install
+
+```bash
+$ npm install deep-values
+```
 
 ## Why?
 > In the modern day, let say we want to do things like the old angularjs filter function?
@@ -60,13 +66,8 @@ result = req.filter((item) => JSON.stringify(item).indexOf('x') > -1);
 
 See typescript file for methods [usage/definition](dist/index.d.ts)
 
-## Install
 
-```bash
-$ npm install deep-values
-```
-
-## Note
+## Examples
 ```html
 <!-- old angularjs days -->
 <!-- simple -->
