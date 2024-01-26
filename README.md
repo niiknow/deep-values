@@ -2,6 +2,7 @@
 - `deepValues` capture version of Object.values that return all object's primative values
 - `deepFilter` piggy-back on `deepValues` to allow for deep filtering on object's primative values
 
+Finally, all that in less than 100 lines of code and 0/zero dependencies.
 
 ## Why?
 > In the modern day, let say we want to do things like the old angularjs filter function?

@@ -43,7 +43,6 @@ function deepValues(source: any, stack: any[] = new Array()): any[] {
   return result;
 }
 
-
 /**
  * helper method to deep filtering an array
  * this basically short-cutting the usage of deepValues
