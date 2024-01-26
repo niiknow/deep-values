@@ -1,6 +1,6 @@
 # deepValues and deepFilter
-- `deepValues` deep capture version of Object.values that return all object's primative values
-- `deepFilter` piggy-back on `deepValues` to allow for deep filtering on object primative values
+- `deepValues` capture version of Object.values that return all object's primative values
+- `deepFilter` piggy-back on `deepValues` to allow for deep filtering on object's primative values
 
 
 ## Why?
@@ -81,7 +81,22 @@ contains the word pharmacy/Pharmacy -->
  
 <!-- advanced: let say product.departments[].name or product.location can both
 contains the word pharmacy/Pharmacy -->
-<div x-for="product in deepFilter(item, v => `${v}`.toLowerCase().indexOf('pharmacy') > -1)">
+<div x-for="product in deepFilter(products, v => `${v}`.toLowerCase().indexOf('pharmacy') > -1)">
+
+<!-- obvious, we would simply use v-for in Vuejs -->
+<div v-for="product in deepFilter(products, v => `${v}`.toLowerCase().indexOf('pharmacy') > -1)">
+
+```
+
+> And in reactjs, it would simply javascript coding with the map function like so:
+```JSX
+  return (
+    <ul>
+      {deepFilter(products, v => `${v}`.toLowerCase().indexOf('pharmacy') > -1).map((product, index) => (
+        <li key={index}>{product}</li>
+      ))}
+    </ul>
+  );
 
 ```
 
