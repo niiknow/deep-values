@@ -19,8 +19,8 @@ const req: any[] = [
 // not case-sensitive `string.contains` search
 let result: any[] = req.filter((item) =>
   // note: we want to pass the original object in as array item of stack/2nd parameter
-  // to prevent cyclic issue
-  deepValues(item).some((v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)
+  // as with `[req]` to prevent cyclic issue
+  deepValues(item, [req]).some((v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)
 );
 
 console.log(result); /*
@@ -47,7 +47,7 @@ req[0].win = window;
 
 result = req.filter((item) =>
   // note: we want to pass the original object in as array item of stack/2nd parameter
-  // to prevent cyclic issue
+  // as with `[req]` to prevent cyclic issue
   deepValues(item).some((v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)
 );
 
@@ -62,6 +62,15 @@ result = req.filter((item) => JSON.stringify(item).indexOf('x') > -1);
 
 ```bash
 $ npm install deep-values
+```
+
+## Note
+```html
+<!-- old angularjs days -->
+<div ng-repeat="product in products | filter:'x'"> 
+
+<!-- modern day alpinejs -->
+<div ng-repeat="product in products.filter(item => deepValues(item, [products]).some(v => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1))">
 ```
 
 ## MIT
