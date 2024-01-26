@@ -1,0 +1,33 @@
+{
+  "name": "deep-values",
+  "version": "1.0.0",
+  "description": "line by line diff of two large files",
+  "license": "MIT",
+  "repository": "niiknow/deep-values",
+  "author": {
+    "name": "noogen",
+    "email": "friends@niiknow.org",
+    "url": "https://niiknow.org"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && DEBUG=deep-values nyc ava",
+    "report": "tsc && DEBUG=deep-values nyc report --reporter=html"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "deep",
+    "values",
+    "object"
+  ],
+  "devDependencies": {
+    "@types/node": "^20.11.6",
+    "ava": "^6.1.0",
+    "nyc": "^15.1.0",
+    "typescript": "^5.3.3"
+  },
+  "ava": {
+    "failWithoutAssertions": true
+  }
+}
