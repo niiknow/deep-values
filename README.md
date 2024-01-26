@@ -67,10 +67,19 @@ $ npm install deep-values
 ## Note
 ```html
 <!-- old angularjs days -->
+<!-- simple -->
+<div ng-repeat="product in products | filter:{ colour: 'red' }"> 
+<!-- advanced -->
 <div ng-repeat="product in products | filter:'x'"> 
 
+
 <!-- modern day alpinejs -->
-<div ng-repeat="product in products.filter(item => deepValues(item, [products]).some(v => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1))">
+<!-- simple with built-in Array.filter function -->
+<div x-for="product in products.filter(item => item.color === 'red')"> 
+
+<!-- advanced -->
+<div x-for="product in products.filter(item => deepValues(item, [products]).some(v => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1))">
+
 ```
 
 ## MIT
