@@ -75,7 +75,7 @@ $ npm install deep-values
 
 <!-- modern day alpinejs -->
 <!-- simple with built-in Array.filter function -->
-<div x-for="product in products.filter(item => item.color === 'red')"> 
+<div x-for="product in products.filter(item => item.colour === 'red')"> 
 
 <!-- advanced -->
 <div x-for="product in products.filter(item => deepValues(item, [products]).some(v => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1))">
