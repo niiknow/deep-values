@@ -65,10 +65,6 @@ See typescript file for methods [usage/definition](dist/index.d.ts)
 $ npm install deep-values
 ```
 
-## Signature
-```ts
-
-```
 ## Note
 ```html
 <!-- old angularjs days -->
