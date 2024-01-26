@@ -21,10 +21,10 @@ const req: any[] = [
 let result: any[] = req.filter((item) =>
   // note: we want to pass the original object in as array item of stack/2nd parameter
   // as with `[req]` to prevent cyclic issue
-  deepValues(item, [req]).some((v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)
+  deepValues(item, [req]).some((v) => `${v}`.toLowerCase().indexOf('x') > -1)
 );
 
-// or use: deepFilter(req, (v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1);
+// or use: deepFilter(req, (v) => `${v}`.toLowerCase().indexOf('x') > -1);
 
 console.log(result); /*
 [
@@ -48,7 +48,7 @@ console.log(result); // [ { symbol: 'testx2' } ]
 
 req[0].win = window;
 
-result = deepFilter(req, (v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1);
+result = deepFilter(req, (v) => `${v}`.toLowerCase().indexOf('x') > -1);
 
 console.log('clear'); // cyclic or window object works fine
 
@@ -85,7 +85,7 @@ contains the word pharmacy/Pharmacy -->
  
 <!-- advanced: let say product.departments[].name or product.location can both
 contains the word pharmacy/Pharmacy -->
-<div x-for="product in deepFilter(item, v => `${v}`.toLowerCase().indexOf('Pharmacy'.toLowerCase()) > -1)">
+<div x-for="product in deepFilter(item, v => `${v}`.toLowerCase().indexOf('pharmacy') > -1)">
 
 ```
 
