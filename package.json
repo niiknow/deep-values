@@ -1,7 +1,7 @@
 {
   "name": "deep-values",
-  "version": "1.0.1",
-  "description": "deep version of Object.values",
+  "version": "1.1.0",
+  "description": "deepValues version of Object.values and deepFilter",
   "license": "MIT",
   "repository": "niiknow/deep-values",
   "author": {
@@ -19,7 +19,8 @@
   "keywords": [
     "deep",
     "values",
-    "object"
+    "deep-values",
+    "deep-filter"
   ],
   "devDependencies": {
     "@types/node": "^20.11.6",

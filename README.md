@@ -1,5 +1,6 @@
 # deep values
-> deep capture version of Object.values  
+`deepValues` - deep capture version of Object.values that return all object's primative values 
+`deepFilter` - piggy-back on `deepValues` to allow for deep filtering on object primative values
 
 
 ## Why?
