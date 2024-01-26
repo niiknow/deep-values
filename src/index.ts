@@ -1,11 +1,10 @@
 /**
  * deep return all primative values of an object
  *
- * @param  {any}   source
+ * @param  {any}   source    can be anything, including primatives, object or array
  * @param  {any[] = new Array() }  stack   optional array to track all objects we processed
  * @return {any[]}        array of values
  */
-
 function deepValues(source: any, stack: any[] = new Array()): any[] {
   let result: any[] = [],
     values: any[] = source,
@@ -44,4 +43,24 @@ function deepValues(source: any, stack: any[] = new Array()): any[] {
   return result;
 }
 
-export default deepValues;
+
+/**
+ * helper method to deep filtering an array
+ * this basically short-cutting the usage of deepValues
+ *
+ * @param  {T[] | T[]}     source  array of specific type
+ * @param  {(any, number, any[]) => boolean }     valueFilterFn  predicate filtering on the Object primative values
+ * @return {T[]}            items matching filter in array
+ */
+function deepFilter<T>(source: T | T[], valueFilterFn: (value: any, index: number, object: any[]) => boolean): T[] {
+
+  if ((Array.isArray(source) || source instanceof Array)) {
+    return source.filter(item => deepValues(item, [source]).some(valueFilterFn));
+  }
+
+  let myArray = Object.values(source);
+
+  return myArray.filter(item => deepValues(item, [source, myArray]).some(valueFilterFn));
+}
+
+export default { deepValues, deepFilter };

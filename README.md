@@ -6,7 +6,7 @@
 > In the modern day, let say we want to do things like the old angularjs filter function?
 
 ```ts
-import deepValues from 'deep-values'
+import { deepFilter, deepValues } from 'deep-values'
 
 const req: any[] = [
   { x: Symbol('hi'), symbol: 'es', a: { b: '#c' }, c: () => {}, f: String('X'), y: Number(1) },
@@ -16,12 +16,14 @@ const req: any[] = [
   { symbol: 'testX4' },
 ];
 
-// not case-sensitive `string.contains` search
+// not case-sensitive `string.contains` search with deepValues
 let result: any[] = req.filter((item) =>
   // note: we want to pass the original object in as array item of stack/2nd parameter
   // as with `[req]` to prevent cyclic issue
   deepValues(item, [req]).some((v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)
 );
+
+// or use: deepFilter(req, (v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1);
 
 console.log(result); /*
 [
@@ -45,11 +47,7 @@ console.log(result); // [ { symbol: 'testx2' } ]
 
 req[0].win = window;
 
-result = req.filter((item) =>
-  // note: we want to pass the original object in as array item of stack/2nd parameter
-  // as with `[req]` to prevent cyclic issue
-  deepValues(item).some((v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)
-);
+result = deepFilter(req, (v) => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1);
 
 console.log('clear'); // cyclic or window object works fine
 
@@ -58,12 +56,18 @@ result = req.filter((item) => JSON.stringify(item).indexOf('x') > -1);
 
 ```
 
+See typescript file for methods [usage/definition](dist/index.d.ts)
+
 ## Install
 
 ```bash
 $ npm install deep-values
 ```
 
+## Signature
+```ts
+
+```
 ## Note
 ```html
 <!-- old angularjs days -->
@@ -78,7 +82,7 @@ $ npm install deep-values
 <div x-for="product in products.filter(item => item.colour === 'red')"> 
 
 <!-- advanced -->
-<div x-for="product in products.filter(item => deepValues(item, [products]).some(v => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1))">
+<div x-for="product in deepFilter(item, v => `${v}`.toLowerCase().indexOf('x'.toLowerCase()) > -1)">
 
 ```
 
