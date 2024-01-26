@@ -88,7 +88,7 @@ contains the word pharmacy/Pharmacy -->
 
 ```
 
-> And in reactjs, it would simply javascript coding with the map function like so:
+> And in reactjs, we would use the `map` function like in regular javascript or example below with JSX templating:
 ```JSX
   return (
     <ul>
