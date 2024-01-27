@@ -1,6 +1,6 @@
 {
   "name": "deep-values",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "deepValues capture version of Object.values and deepFilter",
   "license": "MIT",
   "repository": "niiknow/deep-values",
@@ -24,7 +24,7 @@
     "deep-filter"
   ],
   "devDependencies": {
-    "@types/node": "^20.11.6",
+    "@types/node": "^20.11.7",
     "ava": "^6.1.0",
     "nyc": "^15.1.0",
     "typescript": "^5.3.3"
